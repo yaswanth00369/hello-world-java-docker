@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
         - name: java-app
-          image: 058264533474.dkr.ecr.ap-south-1.amazonaws.com/java-sample-app:${BUILD_ID}
+          image: 058264533474.dkr.ecr.ap-south-1.amazonaws.com/java-sample-app:PRESENT_BUILD_ID
           ports:
             - containerPort: 8080  # Adjust the port as needed
       imagePullSecrets:
