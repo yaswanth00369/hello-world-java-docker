@@ -1,19 +1,19 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: java-app
+  name: java
 spec:
   replicas: 3  # Adjust the number of replicas as needed
   selector:
     matchLabels:
-      app: java-app
+      app: java
   template:
     metadata:
       labels:
-        app: java-app
+        app: java
     spec:
       containers:
-        - name: java-app
+        - name: java
           image: 058264533474.dkr.ecr.ap-south-1.amazonaws.com/java-sample-app:PRESENT_BUILD_ID
           ports:
             - containerPort: 8080  # Adjust the port as needed
