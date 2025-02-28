@@ -1,0 +1,27 @@
+trigger: none  # Manual trigger
+
+pool:
+  name: 'AWS-Linux-Agent'  # Replace with your self-hosted pool name
+
+stages:
+  - stage: AgentInfo
+    displayName: "Gather Agent Information"
+    jobs:
+      - job: GetInfo
+        displayName: "Get Agent System Info"
+        steps:
+          - script: |
+              echo "Agent Name: $(Agent.Name)"
+              echo "Agent Machine: $(Agent.MachineName)"
+              echo "Agent OS: $(Agent.OS)"
+              echo "Agent Version: $(Agent.Version)"
+              echo "Current User: $(whoami)"
+              echo "System Uptime:"
+              uptime
+              echo "CPU Information:"
+              lscpu
+              echo "Memory Usage:"
+              free -h
+              echo "Disk Usage:"
+              df -h
+            displayName: "Print Agent Information"
